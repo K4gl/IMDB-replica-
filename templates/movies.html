@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body class="bg-dark">
+  <nav class="navbar navbar-light bg-light">
+      <div class="container">
+          <h1 class="navbar-brand mx-auto"><img src="../static/images/imdb.png" alt="" style="width: 8rem; height: 4rem;"></h1>
+      </div>
+  </nav>   
+  <div class="card mx-auto" style="width:55rem">
+    {% for i in source.findAll('div', class_="lister-item mode-advanced"):%}
+      <div class="card-body">
+          <h3 class="card-tittle">
+              {{i.h3.a.text}} </h3>
+          <p>Year: {{i.h3.find('span', class_="lister-item-year text-muted unbold").text.replace('(','').replace(')','')}} <span>Time: {{i.p.find('span', class_='runtime').text}}</span> <span>Genre: {{i.p.find('span', class_='genre').text.replace('\n',"").replace('','')}}</span> </p>
+          <p class="card-text">{{i.findAll('p', class_="text-muted")[1].text}} </p>
+          <img src="{{i.find('img', class_='loadlate').get('loadlate')}}" alt="movieposter">
+      </div>
+       <hr>
+      {%endfor%}
+     
+  </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDB</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body class="bg-dark" >
+  <nav class="navbar navbar-light bg-light">
+      <div class="container">
+          <h1 class="navbar-brand mx-auto"><img src="../static/images/imdb.png" alt="" style="width: 8rem; height: 4rem;"></h1>
+      </div>
+  </nav>
+  <form action="{{url_for('movies')}}" method="POST"> 
+        <div class="row searchBar" style="margin-top: 15rem;">
+      <div class="col-lg-4 col-md-6 col-sm-3 mx-auto">
+          <input class="form-control" type="text" placeholder="Enter a number" name="number">
+          <button type="submit" class="btn btn-light" style="margin-top: 0.8em;">Sumbit</button>
+      </div>
+      </div>
+  </form>
+  
+  
+</body>
+</html>
